@@ -16,10 +16,31 @@ import Comp from "./Comp";
 
 function App() {
   const [toggle, setToggle] = useState(false);
+  const [arr, setArr] = useState([]);
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [opt, setOpt] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("summited");
+    const res = {
+      val: name,
+      d: date,
+      op: opt,
+    };
+    setArr([...arr, res]);
+    // setArr(arr.prototype.push(res));
+    console.log(res);
+    console.log(arr);
+  };
   const handletoggle = () => {
     setToggle(!toggle);
   };
-  console.log(toggle);
+  // console.log(toggle);
+  // console.log(date);
+  console.log(arr.length);
+  console.log(arr);
   return (
     <>
       <div className="container">
@@ -121,13 +142,16 @@ function App() {
                 </div>
               </div>
 
-              <Comp />
-              <Comp />
-              <Comp />
+              {arr.map((items) => {
+                return <Comp name={items.val} date={items.d} opt={items.op} />;
+              })}
             </div>
           </div>
         </div>
-        <div className={toggle ? "popup open" : "popup"}>
+        <form
+          className={toggle ? "popup open" : "popup"}
+          onSubmit={handleSubmit}
+        >
           <div className="popup_content">
             <div className="popup_container">
               <div className="top">
@@ -139,15 +163,24 @@ function App() {
                 <div className="left_content">
                   <div className="left_first">
                     <span>Name</span>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      onChange={(e) => setName(e.target.value)}
+                    />
                   </div>
                   <div className="left_second">
                     <span>Date</span>
-                    <input type="text" />
+                    <input
+                      type="date"
+                      onChange={(e) => setDate(e.target.value)}
+                    />
                   </div>
                   <div className="left_third">
                     <span>Optional</span>
-                    <input type="text" />
+                    <input
+                      type="text"
+                      onChange={(e) => setOpt(e.target.value)}
+                    />
                   </div>
                 </div>
                 <hr />
@@ -165,10 +198,16 @@ function App() {
                   </div>
                 </div>
               </div>
-              <button onClick={handletoggle}>Save</button>
+              <button
+                type="submit"
+                onClick={handletoggle}
+                onSubmit={handleSubmit}
+              >
+                Save
+              </button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
