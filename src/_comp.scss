@@ -1,0 +1,47 @@
+.data_content {
+    margin-left: 20px;
+    display: flex !important;
+    justify-content: space-between;
+    height: 50px;
+    width: 95%;
+    border-bottom: 1px solid grey;
+  
+
+    &_left {
+        display: flex;
+        justify-content: space-between;
+        &_dataL {
+            color: grey;
+            font-weight: 400;
+            font-size: 15px;
+        }
+        &_dataR {
+            color: grey;
+            font-weight: 400;
+            font-size: 15px;
+            height: 20px;
+        }
+    }
+    &_right {
+        display: flex;
+        float: right;
+       flex-direction: row !important;
+      
+
+        &_dataL {
+            font-weight: 400;
+            color: grey;
+            font-size: 15px;
+            height: 20px;
+        }
+        &_dataR {
+            width: 20px;
+            height: 20px;
+            align-self: center;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}

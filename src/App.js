@@ -1,5 +1,6 @@
 import "./_app.scss";
 import React, { useState } from "react";
+import { HiOutlineDocumentAdd } from "react-icons/hi";
 import link from "./photos/Settings.svg";
 import user from "./photos/Group 815.png";
 import msg from "./photos/Layer2.png";
@@ -11,6 +12,7 @@ import grid2 from "./photos/Group 622.svg";
 import grid0 from "./photos/Group 646.svg";
 import grid3 from "./photos/Path 1974.svg";
 import calin from "./photos/Group 856.svg";
+import Comp from "./Comp";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -103,6 +105,25 @@ function App() {
                   <span>All </span>
                 </div>
               </div>
+              <div
+                className="header"
+                style={{ display: "flex", justifyContent: "space-between" }}
+              >
+                <div
+                  className="header_left"
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <span>Name</span>
+                  <span>Type</span>
+                </div>
+                <div className="header_right">
+                  <span>Date</span>
+                </div>
+              </div>
+
+              <Comp />
+              <Comp />
+              <Comp />
             </div>
           </div>
         </div>
@@ -111,38 +132,36 @@ function App() {
             <div className="popup_container">
               <div className="top">
                 <span>Add a new holiday</span>
-                <span>x</span>
+                <button onClick={handletoggle}>X</button>
               </div>
 
               <div className="main_content">
                 <div className="left_content">
                   <div className="left_first">
-                    <span>Add</span>
+                    <span>Name</span>
                     <input type="text" />
                   </div>
                   <div className="left_second">
-                    <span></span>
+                    <span>Date</span>
                     <input type="text" />
                   </div>
                   <div className="left_third">
-                    <span></span>
+                    <span>Optional</span>
                     <input type="text" />
                   </div>
                 </div>
                 <hr />
                 <div className="right_content">
                   <div className="right_first">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Omnis repellendus nihil voluptatem? Lorem, ipsum dolor sit
-                    amet consectetur adipisicing elit. Dicta, necessitatibus.
+                    Download sample in <span>.csv format</span> file to ensure
+                    that you have the correct file readt to import
                   </div>
                   <div className="right_second">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Facilis doloremque architecto laboriosam itaque, odit ea
-                    omnis, harum optio autem facere id hic natus officia
-                    aspernatur. Beatae inventore labore quo ad nam distinctio
-                    voluptates, cum animi porro obcaecati nihil? Consectetur,
-                    fugiat?
+                    <div className="right_second_main">
+                      <HiOutlineDocumentAdd />
+                      <span>drag and drop svg file</span>
+                      <span>or click here to upload</span>
+                    </div>
                   </div>
                 </div>
               </div>
