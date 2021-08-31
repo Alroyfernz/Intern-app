@@ -249,7 +249,7 @@
     height: 760px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-
+    font-family: 'Roboto', sans-serif;
     top: 0;
     position: absolute;
     display: flex;
@@ -358,13 +358,26 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+span{
+    color: #BBBBBF;
+}
                         }
                     }
                 }
             }
-            button {
+            .submit_btn {
                 position: absolute;
+                background-color: #40D2AC;
+                color: white;
+                border: none;
+                padding: 8px;
+                width: 60px;
+                border-radius: 4px;
+                margin-top: 30px;
                 right: 450px;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     }

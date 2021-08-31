@@ -29,18 +29,21 @@ function App() {
       d: date,
       op: opt,
     };
-    setArr([...arr, res]);
-    // setArr(arr.prototype.push(res));
+    if (arr.length <= 6) {
+      setArr([...arr, res]);
+    }
+
     console.log(res);
     console.log(arr);
   };
+
   const handletoggle = () => {
     setToggle(!toggle);
   };
-  // console.log(toggle);
-  // console.log(date);
+
   console.log(arr.length);
   console.log(arr);
+
   return (
     <>
       <div className="container">
@@ -116,7 +119,7 @@ function App() {
                 Assign the holidays you want to give to your employees
               </span>
               <div className="section">
-                <span>List(6)</span>
+                <span>List({arr.length})</span>
                 <div className="section_right">
                   <div className="add_btn" onClick={handletoggle}>
                     {" "}
@@ -142,8 +145,16 @@ function App() {
                 </div>
               </div>
 
-              {arr.map((items) => {
-                return <Comp name={items.val} date={items.d} opt={items.op} />;
+              {arr.map((items, index) => {
+                return (
+                  <Comp
+                    key={index}
+                    id={index}
+                    name={items.val}
+                    date={items.d}
+                    opt={items.op}
+                  />
+                );
               })}
             </div>
           </div>
@@ -186,19 +197,27 @@ function App() {
                 <hr />
                 <div className="right_content">
                   <div className="right_first">
-                    Download sample in <span>.csv format</span> file to ensure
-                    that you have the correct file readt to import
+                    Download sample in{" "}
+                    <span style={{ color: "#FEA101" }}>.csv format</span> file
+                    to ensure that you have the correct file readt to import
                   </div>
                   <div className="right_second">
                     <div className="right_second_main">
-                      <HiOutlineDocumentAdd />
-                      <span>drag and drop svg file</span>
+                      <HiOutlineDocumentAdd
+                        style={{
+                          color: "#BBBBBF",
+                          width: "40px",
+                          height: "40px",
+                        }}
+                      />
+                      <span>drag and drop CSV file</span>
                       <span>or click here to upload</span>
                     </div>
                   </div>
                 </div>
               </div>
               <button
+                className="submit_btn"
                 type="submit"
                 onClick={handletoggle}
                 onSubmit={handleSubmit}
