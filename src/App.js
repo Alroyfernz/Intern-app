@@ -1,6 +1,7 @@
 import "./_app.scss";
 import React, { useState } from "react";
 import { HiOutlineDocumentAdd } from "react-icons/hi";
+import { FiFilter } from "react-icons/fi";
 import link from "./photos/Settings.svg";
 import user from "./photos/Group 815.png";
 import msg from "./photos/Layer2.png";
@@ -112,7 +113,7 @@ function App() {
                   <img src={calin} alt="calender" width="16px" height="16px" />
                   <div style={{ color: "#90919B" }}>Year</div>
 
-                  <div style={{ color: "#232326" }}>2021</div>
+                  <div style={{ color: "#232326" }}>2021 </div>
                 </div>
               </div>
               <span>
@@ -125,7 +126,10 @@ function App() {
                     {" "}
                     + Add new
                   </div>
-                  <div> Filter</div>
+                  <div>
+                    {" "}
+                    <FiFilter /> Filter
+                  </div>
                   <span>All </span>
                 </div>
               </div>
